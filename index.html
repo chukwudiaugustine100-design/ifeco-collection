@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ifeco Collection | Modern Fashion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf6f0;--card:#fff;--ink:#1c1917;--mute:#6b645d;--acc:#b4532a;--acc2:#e9d5c3;--line:#e7ded3;--dark:#1c1917;--on-dark:#faf6f0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15110f;--card:#211b18;--ink:#f3ece4;--mute:#a79d93;--acc:#e07a4c;--acc2:#3a2d25;--line:#33291f;--dark:#0d0a09;--on-dark:#f3ece4}}
+:root[data-theme="dark"]{--bg:#15110f;--card:#211b18;--ink:#f3ece4;--mute:#a79d93;--acc:#e07a4c;--acc2:#3a2d25;--line:#33291f;--dark:#0d0a09;--on-dark:#f3ece4}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+h1,h2,h3,.logo{font-family:'Playfair Display',Georgia,serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:auto;padding:0 20px}
+section{padding:80px 0}
+.eyebrow{color:var(--acc);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:6px 0 12px}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:13px 28px;border-radius:99px;font-weight:600;border:0;cursor:pointer;font-size:.95rem;transition:.2s}
+.btn:hover{background:var(--acc);color:#fff;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-size:1.5rem;font-weight:700;letter-spacing:.02em}.logo span{color:var(--acc)}
+nav ul{display:flex;gap:30px;list-style:none;padding:0}
+nav a{font-size:.92rem;font-weight:500;color:var(--mute);transition:.2s}nav a:hover{color:var(--acc)}
+.actions{display:flex;align-items:center;gap:14px}
+.cart{position:relative;background:none;border:0;color:var(--ink);cursor:pointer;display:flex}
+.cart b{position:absolute;top:-8px;right:-10px;background:var(--acc);color:#fff;font-size:.68rem;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center}
+.burger{display:none;background:none;border:0;width:30px;height:24px;position:relative;cursor:pointer}
+.burger i{position:absolute;left:0;width:100%;height:2.5px;background:var(--ink);border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:2px}.burger i:nth-child(2){top:10px}.burger i:nth-child(3){top:18px}
+.burger.open i:nth-child(1){top:10px;transform:rotate(45deg)}.burger.open i:nth-child(2){opacity:0}.burger.open i:nth-child(3){top:10px;transform:rotate(-45deg)}
+/* hero */
+.hero{padding:60px 0 80px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6vw,4.4rem);line-height:1.08;margin:12px 0 18px}
+.hero h1 em{color:var(--acc);font-style:italic}
+.hero p{color:var(--mute);max-width:460px;margin-bottom:28px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:34px;margin-top:40px}.stats b{font-family:'Playfair Display',serif;font-size:1.7rem;display:block}.stats small{color:var(--mute)}
+.art{position:relative;aspect-ratio:1/1.05;background:var(--acc2);border-radius:200px 200px 24px 24px;display:grid;place-items:center}
+.art svg{width:78%}
+.tag{position:absolute;background:var(--card);padding:10px 16px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);font-size:.82rem;font-weight:600;animation:fl 4s ease-in-out infinite}
+.tag.a{left:-4%;top:22%}.tag.b{right:-2%;bottom:16%;animation-delay:1.5s}
+@keyframes fl{50%{transform:translateY(-10px)}}
+/* categories */
+.head{text-align:center;max-width:560px;margin:0 auto 36px}.head p{color:var(--mute)}
+.tabs{display:flex;justify-content:center;gap:10px;margin-bottom:36px}
+.tab{background:transparent;border:1.5px solid var(--line);color:var(--ink);padding:10px 26px;border-radius:99px;font-weight:600;cursor:pointer;font-size:.95rem}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.1)}
+.thumb{aspect-ratio:1/1;display:grid;place-items:center;background:var(--acc2)}
+.thumb svg{width:62%}
+.info{padding:16px}.info small{color:var(--mute);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+.info h3{font-size:1.05rem;margin:2px 0 10px}
+.row{display:flex;justify-content:space-between;align-items:center}
+.row b{font-size:1.05rem}
+.add{background:var(--ink);color:var(--bg);border:0;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;transition:.2s}.add:hover{background:var(--acc)}
+.hide{display:none}
+/* testimonials */
+.dark{background:var(--dark);color:var(--on-dark)}
+.dark .head p{color:#a79d93}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t{border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:26px;background:rgba(255,255,255,.04)}
+.t .st{color:#f0b429;letter-spacing:3px}.t p{margin:12px 0 18px;color:#d8cfc5}
+.who{display:flex;align-items:center;gap:12px}.av{width:42px;height:42px;border-radius:50%;background:var(--acc);display:grid;place-items:center;font-weight:700;color:#fff}
+.who small{display:block;color:#a79d93}
+/* about */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about p{color:var(--mute);margin-bottom:14px}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.vals div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}.vals b{display:block;color:var(--acc)}
+.abox{background:var(--acc2);border-radius:24px;aspect-ratio:1/1;display:grid;place-items:center}.abox svg{width:70%}
+/* contact */
+.cgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+.cinfo p{color:var(--mute);margin-bottom:10px}.cinfo b{color:var(--ink);display:block}
+form{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:14px}
+input,textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--acc);border-color:transparent}
+.ok{color:var(--acc);font-weight:600;min-height:1.4em}
+/* footer */
+footer{background:var(--dark);color:var(--on-dark);padding:50px 0 24px}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px}
+footer p,footer li{color:#a79d93;font-size:.9rem}footer ul{list-style:none;padding:0;display:grid;gap:6px}footer h4{margin-bottom:10px}
+footer a:hover{color:var(--acc)}
+.copy{border-top:1px solid rgba(255,255,255,.1);margin-top:30px;padding-top:18px;text-align:center;font-size:.82rem;color:#a79d93}
+/* responsive */
+@media(max-width:900px){
+.grid{grid-template-columns:repeat(2,1fr)}.tgrid{grid-template-columns:1fr}
+.hero .wrap,.about .wrap,.cgrid{grid-template-columns:1fr}
+.art{max-width:420px;margin:auto}.fg{grid-template-columns:1fr 1fr}
+section{padding:60px 0}}
+@media(max-width:760px){
+.burger{display:block}
+nav{position:absolute;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .35s}
+nav.open{max-height:340px}
+nav ul{flex-direction:column;gap:0;padding:8px 20px 16px}nav li a{display:block;padding:12px 0;font-size:1rem}}
+@media(max-width:480px){.grid{gap:12px}.info{padding:12px}.stats{gap:20px}.fg{grid-template-columns:1fr}}
+
+/* banners + motion */
+.banner{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;border-radius:24px;overflow:hidden;margin-bottom:24px;background:linear-gradient(120deg,var(--acc2),color-mix(in srgb,var(--acc) 35%,var(--acc2)))}
+.banner.w{background:linear-gradient(120deg,color-mix(in srgb,#7a5c8e 30%,var(--acc2)),var(--acc2))}
+.btxt{padding:30px}.btxt h3{font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.15;margin:4px 0 8px}.btxt p{color:var(--mute);font-size:.95rem}
+.banner svg{width:100%;display:block}
+.bob{animation:bob 4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.bob.d1{animation-delay:.7s}.bob.d2{animation-delay:1.4s}.bob.d3{animation-delay:2.1s}
+@keyframes bob{50%{transform:translateY(-9px) rotate(-2deg)}}
+.panel{animation:pop .6s ease}
+@keyframes pop{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.thumb svg{transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.card:hover .thumb svg{transform:scale(1.14) rotate(-4deg)}
+.hero .eyebrow,.hero h1,.hero p,.hero .cta,.hero .stats{animation:up .9s both}
+.hero h1{animation-delay:.12s}.hero p{animation-delay:.25s}.hero .cta{animation-delay:.38s}.hero .stats{animation-delay:.5s}
+@keyframes up{from{opacity:0;transform:translateY(28px)}}
+.art{animation:up 1s .2s both}.art>svg{animation:sway 5s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes sway{50%{transform:rotate(3deg) translateY(-6px)}}
+.btn{position:relative;overflow:hidden}.btn:active{transform:scale(.96)}
+.add.pulse{animation:ping .5s}@keyframes ping{50%{transform:scale(1.35);background:var(--acc)}}
+.cart.bump{animation:ping .4s}
+.marq{background:var(--ink);color:var(--bg);overflow:hidden;white-space:nowrap;padding:12px 0;font-size:.82rem;letter-spacing:.2em;text-transform:uppercase}
+.marq div{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:900px){.banner{grid-template-columns:1fr}.btxt{padding:24px 24px 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+.buy{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;background:#25d366;color:#fff;padding:10px 12px;border-radius:12px;font-weight:600;font-size:.88rem;transition:.2s}
+.buy:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.35)}
+.buy svg{width:18px;height:18px;flex:none}
+@media(max-width:480px){.buy{font-size:.8rem;padding:9px 8px;gap:6px}}
+.thumb{background:radial-gradient(circle at 50% 28%,color-mix(in srgb,var(--acc2) 55%,#fff),var(--acc2) 82%);position:relative}
+.thumb::after{content:"";position:absolute;left:18%;right:18%;bottom:9%;height:7%;background:radial-gradient(ellipse,rgba(0,0,0,.22),transparent 70%);filter:blur(3px)}
+.thumb svg{width:76%;overflow:visible;position:relative;z-index:1}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".3" stop-color="#000" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".2"/><stop offset=".72" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".38"/></linearGradient>
+<linearGradient id="sv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset=".15" stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff" stop-opacity=".5"/><stop offset=".75" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<filter id="drop" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="2.5" flood-color="#000" flood-opacity=".35"/></filter>
+</defs></svg>
+
+<header>
+ <div class="wrap nav">
+  <a href="#home" class="logo">Ifeco<span>.</span>Collection</a>
+  <nav id="menu" aria-label="Main">
+   <ul>
+    <li><a href="#home">Home</a></li><li><a href="#shop">Shop</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+  <div class="actions">
+   
+   <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="wrap">
+  <div>
+   <span class="eyebrow">New Season 2026</span>
+   <h1>Dress with <em>confidence</em>, walk with style.</h1>
+   <p>Ifeco Collection brings you modern clothing and statement footwear for men and women, crafted for everyday elegance.</p>
+   <div class="cta"><a href="#shop" class="btn">Shop Now</a><a href="#about" class="btn ghost">Our Story</a></div>
+   <div class="stats"><div><b>500+</b><small>Styles</small></div><div><b>12k</b><small>Happy clients</small></div><div><b>4.9★</b><small>Rating</small></div></div>
+  </div>
+  <div class="art">
+   <svg viewBox="0 0 300 300" fill="none"><path d="M95 60l-55 35 20 45 30-14v114h120V126l30 14 20-45-55-35c-8 18-24 28-45 28s-37-10-45-28z" fill="#1c1917"/><path d="M125 60c6 14 15 20 25 20s19-6 25-20" stroke="#faf6f0" stroke-width="3"/><path d="M60 270c0-12 12-18 30-18h40c8 0 12 6 12 12v6H60z" fill="#b4532a"/><path d="M240 270c0-12-12-18-30-18h-40c-8 0-12 6-12 12v6h82z" fill="#b4532a"/></svg>
+   <div class="tag a">Free delivery over ₦140,000</div><div class="tag b">New arrivals weekly</div>
+  </div>
+ </div>
+</section>
+
+<div class="marq"><div>NEW ARRIVALS &nbsp;✦&nbsp; FREE DELIVERY OVER ₦140,000 &nbsp;✦&nbsp; MEN &amp; WOMEN &nbsp;✦&nbsp; SHOES &amp; ACCESSORIES &nbsp;✦&nbsp; NEW ARRIVALS &nbsp;✦&nbsp; FREE DELIVERY OVER ₦140,000 &nbsp;✦&nbsp; MEN &amp; WOMEN &nbsp;✦&nbsp; SHOES &amp; ACCESSORIES &nbsp;✦&nbsp; NEW ARRIVALS &nbsp;✦&nbsp; FREE DELIVERY OVER ₦140,000 &nbsp;✦&nbsp; MEN &amp; WOMEN &nbsp;✦&nbsp; SHOES &amp; ACCESSORIES &nbsp;✦&nbsp; NEW ARRIVALS &nbsp;✦&nbsp; FREE DELIVERY OVER ₦140,000 &nbsp;✦&nbsp; MEN &amp; WOMEN &nbsp;✦&nbsp; SHOES &amp; ACCESSORIES &nbsp;✦&nbsp; </div></div>
+
+<section id="shop">
+ <div class="wrap">
+  <div class="head"><span class="eyebrow">Categories</span><h2>Shop the Collection</h2><p>Explore tailored wear and footwear for him and her.</p></div>
+  <div class="tabs"><button class="tab on" data-t="men">Men's Wear</button><button class="tab" data-t="women">Women's Wear</button></div>
+  <div class="panel" id="men"><div class="banner"><div class="btxt"><span class="eyebrow">For Him</span><h3>Sharp. Bold. Timeless.</h3><p>Tailoring, shirts and footwear built for the modern man.</p></div><svg viewBox="0 0 400 260" fill="none"><ellipse cx="200" cy="236" rx="180" ry="12" fill="#000" opacity=".12"/><g class="bob"><path d="M70 40l-44 28 14 36 20-8v88h96v-88l20 8 14-36-44-28c-6 14-18 22-38 22s-32-8-38-22z" fill="#3b3b3b"/><path d="M108 40v140" stroke="#faf6f0" stroke-width="2"/><circle cx="112" cy="110" r="3" fill="#faf6f0"/><circle cx="112" cy="135" r="3" fill="#faf6f0"/></g><g class="bob d1"><path d="M210 70l-30 20 10 26 14-6v62h70v-62l14 6 10-26-30-20c-4 10-12 15-24 15s-20-5-24-15z" fill="#2f4858"/><path d="M233 70l10 14 10-14" stroke="#faf6f0" stroke-width="2"/></g><g class="bob d2"><path d="M290 190c0-8 5-12 12-12h22l8 6h18c10 0 12 5 12 12v6h-72z" fill="#b4532a"/><path d="M290 202h72" stroke="#1c1917" stroke-width="4"/></g><g class="bob d3"><path d="M296 222c0-8 6-11 12-11l9-10 6 4 8 3c11 1 26 4 26 13v4h-61z" fill="#faf6f0" stroke="#1c1917" stroke-width="2"/><path d="M296 228h61" stroke="#1c1917" stroke-width="4"/></g></svg></div><div class="grid">
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 10L12 24l8 28 10-4v42h40V48l10 4 8-28L66 10c-3 8-9 12-16 12s-13-4-16-12z" fill="#8fb3d9"/><path d="M34 10L12 24l8 28 10-4v42h40V48l10 4 8-28L66 10c-3 8-9 12-16 12s-13-4-16-12z" fill="url(#sh)"/><path d="M34 10L12 24l8 28 10-4v42h40V48l10 4 8-28L66 10c-3 8-9 12-16 12s-13-4-16-12z" fill="url(#sv)"/><path d="M34 10l16 20-6 6-16-14z" fill="#e6eff8" stroke="#000" stroke-opacity=".25" stroke-width=".8"/><path d="M66 10L50 30l6 6 16-14z" fill="#d5e3f1" stroke="#000" stroke-opacity=".25" stroke-width=".8"/><path d="M50 30v60" fill="none" stroke="#000" stroke-opacity=".28"/><circle cx="50" cy="42" r="1.6" fill="#fff"/><circle cx="50" cy="54" r="1.6" fill="#fff"/><circle cx="50" cy="66" r="1.6" fill="#fff"/><circle cx="50" cy="78" r="1.6" fill="#fff"/><rect x="56" y="46" width="12" height="12" rx="1" fill="none" stroke="#000" stroke-opacity=".25"/><path d="M30 56q4 12 0 28M70 56q-4 12 0 28M14 32l10 18" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Men · Shirts</small><h3>Classic Oxford Shirt</h3><div class="row"><b>₦66,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 12L14 22 8 74l14 4 4-28v40h48V50l4 28 14-4-6-52L66 12 58 22 50 34 42 22z" fill="#3b404c"/><path d="M34 12L14 22 8 74l14 4 4-28v40h48V50l4 28 14-4-6-52L66 12 58 22 50 34 42 22z" fill="url(#sh)"/><path d="M34 12L14 22 8 74l14 4 4-28v40h48V50l4 28 14-4-6-52L66 12 58 22 50 34 42 22z" fill="url(#sv)"/><path d="M42 22l8 12 8-12-8-4z" fill="#f1ece4"/><path d="M42 22l8 12-10 18-10-12 6-10z" fill="#4a505e" stroke="#000" stroke-opacity=".45" stroke-width=".8"/><path d="M58 22l-8 12 10 18 10-12-6-10z" fill="#434957" stroke="#000" stroke-opacity=".45" stroke-width=".8"/><path d="M50 52v36" fill="none" stroke="#000" stroke-opacity=".4"/><circle cx="50" cy="60" r="2" fill="#111"/><circle cx="50" cy="74" r="2" fill="#111"/><path d="M30 66h10M60 66h10" fill="none" stroke="#000" stroke-opacity=".4" stroke-width="1.2"/><path d="M22 40l-2 30M78 40l2 30" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Men · Outerwear</small><h3>Tailored Blazer</h3><div class="row"><b>₦177,500</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="#7b4a2d"/><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="url(#sv)"/><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="url(#sv)"/><path d="M8 72h84v5c0 3-2 5-5 5H13c-3 0-5-2-5-5z" fill="#2b1b12"/><path d="M30 47l8 7M37 45l8 7M24 49l6 6" fill="none" stroke="#f0e2c8" stroke-width="1.8" stroke-linecap="round"/><path d="M64 57q8 4 6 15" fill="none" stroke="#000" stroke-opacity=".4" stroke-dasharray="2 1.5"/><ellipse cx="78" cy="62" rx="9" ry="3" fill="#fff" opacity=".28" transform="rotate(14 78 62)"/></g></svg></div><div class="info"><small>Men · Shoes</small><h3>Leather Derby Shoes</h3><div class="row"><b>₦130,500</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="#f5f5f2"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M8 66h84v9c0 3-2 5-5 5H13c-3 0-5-2-5-5z" fill="#ebe8e0"/><path d="M8 72h84" stroke="#b4532a" stroke-width="2"/><path d="M28 58q22 8 46-4" fill="none" stroke="#b4532a" stroke-width="3" stroke-linecap="round"/><path d="M31 46l8 6M38 44l8 6" fill="none" stroke="#c9c9c4" stroke-width="2" stroke-linecap="round"/><ellipse cx="76" cy="60" rx="9" ry="3" fill="#fff" opacity=".5" transform="rotate(14 76 60)"/></g></svg></div><div class="info"><small>Men · Sneakers</small><h3>Urban Street Sneakers</h3><div class="row"><b>₦108,500</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="#2f6f6b"/><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="url(#sh)"/><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="url(#sv)"/><path d="M36 13c3 7 8 10 14 10s11-3 14-10" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/><path d="M30 56q4 12 0 26M70 56q-4 12 0 26" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Men · T-Shirts</small><h3>Essential Crew Tee</h3><div class="row"><b>₦25,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="#c9483a"/><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="url(#sh)"/><path d="M34 12L12 26l8 22 10-4v46h40V44l10 4 8-22L66 12c-3 6-9 9-16 9s-13-3-16-9z" fill="url(#sv)"/><path d="M36 13c3 7 8 10 14 10s11-3 14-10" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="2"/><path d="M30 56q4 12 0 26M70 56q-4 12 0 26" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/><path d="M34 12l16 14 16-14-4-2-12 8-12-8z" fill="#fff" opacity=".85"/><path d="M50 26v18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><circle cx="50" cy="32" r="1.5" fill="#fff"/><circle cx="50" cy="40" r="1.5" fill="#fff"/></g></svg></div><div class="info"><small>Men · Polos</small><h3>Pique Polo Shirt</h3><div class="row"><b>₦38,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M30 22L10 36l6 38 12-2v20h44V72l12 2 6-38-20-14z" fill="#4b5563"/><path d="M30 22L10 36l6 38 12-2v20h44V72l12 2 6-38-20-14z" fill="url(#sh)"/><path d="M30 22L10 36l6 38 12-2v20h44V72l12 2 6-38-20-14z" fill="url(#sv)"/><path d="M34 22c0-12 8-16 16-16s16 4 16 16c-4 10-10 14-16 14s-12-4-16-14z" fill="#000" opacity="0.2"/><path d="M38 22c2 8 6 11 12 11s10-3 12-11" fill="#000" opacity=".35"/><path d="M46 34v14M54 34v14" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M34 66h32l4 16H30z" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M24 50q-2 14 0 22M76 50q2 14 0 22" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Men · Hoodies</small><h3>Heavyweight Hoodie</h3><div class="row"><b>₦62,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="#bfa682"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sh)"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sv)"/><path d="M30 8h40v7H30z" fill="#000" opacity="0.25"/><path d="M50 15v18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M32 17q6 8 10 18M68 17q-6 8-10 18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><circle cx="50" cy="12" r="1.5" fill="#d9c9a8"/><path d="M36 55q-2 18-6 36M64 55q2 18 6 36" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Men · Trousers</small><h3>Slim Fit Chinos</h3><div class="row"><b>₦55,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="#2f4f86"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sh)"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sv)"/><path d="M30 8h40v7H30z" fill="#000" opacity="0.25"/><path d="M50 15v18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M32 17q6 8 10 18M68 17q-6 8-10 18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><circle cx="50" cy="12" r="1.5" fill="#d9c9a8"/><path d="M36 55q-2 18-6 36M64 55q2 18 6 36" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/><path d="M32 17q6 8 10 18M68 17q-6 8-10 18" fill="none" stroke="#e8c26a" stroke-width=".8" stroke-dasharray="1.6 1.4"/></g></svg></div><div class="info"><small>Men · Denim</small><h3>Indigo Denim Jeans</h3><div class="row"><b>₦58,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M16 10h26v34c12 3 30 8 46 20 6 5 5 14-3 14H16z" fill="#5a3420"/><path d="M16 10h26v34c12 3 30 8 46 20 6 5 5 14-3 14H16z" fill="url(#sv)"/><path d="M16 10h26v34c12 3 30 8 46 20 6 5 5 14-3 14H16z" fill="url(#sv)"/><path d="M14 76h76v8c0 3-2 5-4 5H18c-2 0-4-2-4-5z" fill="#1f1a17"/><path d="M22 20l16 4M22 28l16 4M22 36l16 4" fill="none" stroke="#f0e2c8" stroke-width="1.8" stroke-linecap="round"/><path d="M16 14h26" fill="none" stroke="#000" stroke-opacity=".35" stroke-width="3"/><ellipse cx="72" cy="64" rx="8" ry="2.5" fill="#fff" opacity=".25" transform="rotate(25 72 64)"/></g></svg></div><div class="info"><small>Men · Boots</small><h3>Leather Chelsea Boots</h3><div class="row"><b>₦145,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M12 62C12 32 36 20 56 24c18 4 24 20 24 38z" fill="#1f3a5f"/><path d="M12 62C12 32 36 20 56 24c18 4 24 20 24 38z" fill="url(#sh)"/><path d="M12 62C12 32 36 20 56 24c18 4 24 20 24 38z" fill="url(#sv)"/><path d="M56 60h40c0 9-16 11-40 6z" fill="#1f3a5f"/><path d="M56 60h40c0 9-16 11-40 6z" fill="url(#sv)"/><circle cx="56" cy="24" r="3" fill="#000" opacity=".3"/><path d="M56 24c-8 8-10 22-8 38M56 24c10 8 14 22 12 38" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/></g></svg></div><div class="info"><small>Men · Caps</small><h3>Classic Baseball Cap</h3><div class="row"><b>₦18,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="#2b1a12"/><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="url(#sv)"/><path d="M10 50v22h82c2 0 3-6-2-10C80 54 62 54 52 52l-8-8-16 2c-8 0-14-2-18 4z" fill="url(#sv)"/><path d="M8 72h84v5c0 3-2 5-5 5H13c-3 0-5-2-5-5z" fill="#1c130e"/><path d="M32 46l22 8-4 6-22-8z" fill="#000" opacity=".3"/><rect x="38" y="49" width="8" height="3" rx="1" fill="#d4af37" transform="rotate(20 42 50)"/><ellipse cx="78" cy="62" rx="9" ry="3" fill="#fff" opacity=".25" transform="rotate(14 78 62)"/></g></svg></div><div class="info"><small>Men · Shoes</small><h3>Penny Loafers</h3><div class="row"><b>₦98,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="#2a2a2e"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M8 66h84v9c0 3-2 5-5 5H13c-3 0-5-2-5-5z" fill="#ebe8e0"/><path d="M8 72h84" stroke="#e07a4c" stroke-width="2"/><path d="M28 58q22 8 46-4" fill="none" stroke="#e07a4c" stroke-width="3" stroke-linecap="round"/><path d="M31 46l8 6M38 44l8 6" fill="none" stroke="#c9c9c4" stroke-width="2" stroke-linecap="round"/><ellipse cx="76" cy="60" rx="9" ry="3" fill="#fff" opacity=".5" transform="rotate(14 76 60)"/></g></svg></div><div class="info"><small>Men · Sneakers</small><h3>Black Runner Sneakers</h3><div class="row"><b>₦92,000</b></div></div></div>
+</div></div>
+  <div class="panel hide" id="women"><div class="banner w"><div class="btxt"><span class="eyebrow">For Her</span><h3>Graceful. Chic. Yours.</h3><p>Dresses, heels and accessories made to turn heads.</p></div><svg viewBox="0 0 400 260" fill="none"><ellipse cx="200" cy="236" rx="180" ry="12" fill="#000" opacity=".12"/><g class="bob"><path d="M62 24h36l-6 28 26 150H42L68 52z" fill="#b4532a"/><path d="M66 52h28" stroke="#faf6f0" stroke-width="3"/></g><g class="bob d1"><path d="M200 50l-28 16 10 32 14-6v70h60v-70l14 6 10-32-28-16c-4 10-10 14-18 14s-14-4-18-14z" fill="#7a5c8e"/></g><g class="bob d2"><path d="M290 70h60l8 70h-76z" fill="#c68b59"/><path d="M304 70c0-34 32-34 32 0" stroke="#1c1917" stroke-width="5" fill="none"/><rect x="312" y="96" width="16" height="10" rx="2" fill="#faf6f0"/></g><g class="bob d3"><path d="M150 214h40l8-50 10-10 8 8-6 14 22 38H150z" fill="#1c1917"/><path d="M226 216v14" stroke="#1c1917" stroke-width="5"/><path d="M150 214h70" stroke="#b4532a" stroke-width="3"/></g></svg></div><div class="grid">
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="#b4532a"/><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="url(#sh)"/><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="url(#sv)"/><path d="M39 42h22l-1 6H40z" fill="#000" opacity="0.35"/><path d="M44 52q-8 20-18 40M50 52v40M56 52q8 20 18 40" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Dresses</small><h3>Flowing Midi Dress</h3><div class="row"><b>₦117,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 8L20 18 8 52l12 4 8-18v52h44V38l8 18 12-4L80 18 66 8l-8 10-8 12-8-12z" fill="#7a5c8e"/><path d="M34 8L20 18 8 52l12 4 8-18v52h44V38l8 18 12-4L80 18 66 8l-8 10-8 12-8-12z" fill="url(#sh)"/><path d="M34 8L20 18 8 52l12 4 8-18v52h44V38l8 18 12-4L80 18 66 8l-8 10-8 12-8-12z" fill="url(#sv)"/><path d="M42 18l8 12-6 10 30 40V38z" fill="#fff" opacity=".1"/><path d="M42 18l8 12 22 48" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M8 52L20 18 34 8 28 38 20 56z" fill="url(#sheen)"/><path d="M28 38v52h44V38L58 18 50 30 42 18z" fill="url(#sheen)"/><circle cx="68" cy="68" r="3.5" fill="#5f4472"/><path d="M30 60q6 8 2 24M52 50q-4 18 0 38" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Tops</small><h3>Satin Wrap Blouse</h3><div class="row"><b>₦71,500</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 36v20c4 10 20 18 44 20 18 0 34 2 40 8-10 2-28 2-44 0-14-2-26-6-33-13l3 25h-7L7 56z" fill="#17171b"/><path d="M10 36v20c4 10 20 18 44 20 18 0 34 2 40 8-10 2-28 2-44 0-14-2-26-6-33-13l3 25h-7L7 56z" fill="url(#sv)"/><path d="M10 36v20c4 10 20 18 44 20 18 0 34 2 40 8-10 2-28 2-44 0-14-2-26-6-33-13l3 25h-7L7 56z" fill="url(#sv)"/><path d="M10 40l20 2" fill="none" stroke="#3a3a42" stroke-width="3" stroke-linecap="round"/><path d="M24 70q30 8 62 12" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.5" stroke-linecap="round"/><path d="M16 82q40 6 76 2" fill="none" stroke="#c1121f" stroke-width="1.5"/></g></svg></div><div class="info"><small>Women · Heels</small><h3>Stiletto Evening Heels</h3><div class="row"><b>₦151,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 40C34 6 66 6 66 40" fill="none" stroke="#7a4a22" stroke-width="5" stroke-linecap="round"/><path d="M18 38h64l8 52H10z" fill="#c68b59"/><path d="M18 38h64l8 52H10z" fill="url(#sh)"/><path d="M18 38h64l8 52H10z" fill="url(#sv)"/><path d="M18 38h64l1 10H17z" fill="#a9703f"/><path d="M22 55h56M20 82h60" fill="none" stroke="#f6e3c4" stroke-width="1" stroke-dasharray="2 1.6"/><rect x="43" y="43" width="14" height="12" rx="2" fill="#d4af37" stroke="#8a6d1b" stroke-width=".8"/><circle cx="50" cy="49" r="2" fill="#8a6d1b"/><path d="M30 58q-2 14 0 24M70 58q2 14 0 24" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Accessories</small><h3>Leather Tote Bag</h3><div class="row"><b>₦136,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M34 14h32l2 8c10 20 18 42 22 66H10c4-24 12-46 22-66z" fill="#2e6b5e"/><path d="M34 14h32l2 8c10 20 18 42 22 66H10c4-24 12-46 22-66z" fill="url(#sh)"/><path d="M34 14h32l2 8c10 20 18 42 22 66H10c4-24 12-46 22-66z" fill="url(#sv)"/><path d="M34 14h32l1 7H33z" fill="#000" opacity="0.3"/><path d="M42 22q-4 34-14 66M50 22v66M58 22q4 34 14 66" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Skirts</small><h3>Pleated Midi Skirt</h3><div class="row"><b>₦45,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M40 6h4l2 18q4 4 8 0l2-18h4l2 26-4 10c12 20 22 38 28 60H12c6-22 16-40 28-60l-4-10z" fill="#7b1e3a"/><path d="M40 6h4l2 18q4 4 8 0l2-18h4l2 26-4 10c12 20 22 38 28 60H12c6-22 16-40 28-60l-4-10z" fill="url(#sh)"/><path d="M40 6h4l2 18q4 4 8 0l2-18h4l2 26-4 10c12 20 22 38 28 60H12c6-22 16-40 28-60l-4-10z" fill="url(#sv)"/><path d="M40 40h20l-1 6H41z" fill="#d4af37" opacity=".85"/><path d="M46 52q-8 20-20 40M50 52v40M54 52q8 20 20 40" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Gowns</small><h3>Evening Gown</h3><div class="row"><b>₦185,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M32 8h36l6 42 12 44H56l-6-40-6 40H14l12-44z" fill="#e3d5c0"/><path d="M32 8h36l6 42 12 44H56l-6-40-6 40H14l12-44z" fill="url(#sh)"/><path d="M32 8h36l6 42 12 44H56l-6-40-6 40H14l12-44z" fill="url(#sv)"/><path d="M32 8h36v7H32z" fill="#000" opacity="0.22"/><path d="M50 15v26" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M38 50q-4 22-12 42M62 50q4 22 12 42" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Trousers</small><h3>Wide-Leg Trousers</h3><div class="row"><b>₦64,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M36 14L16 26l6 22 10-2 4 8h28l4-8 10 2 6-22-20-12c-4 6-9 9-14 9s-10-3-14-9z" fill="#e8a0b4"/><path d="M36 14L16 26l6 22 10-2 4 8h28l4-8 10 2 6-22-20-12c-4 6-9 9-14 9s-10-3-14-9z" fill="url(#sh)"/><path d="M36 14L16 26l6 22 10-2 4 8h28l4-8 10 2 6-22-20-12c-4 6-9 9-14 9s-10-3-14-9z" fill="url(#sv)"/><path d="M36 15c3 6 8 9 14 9s11-3 14-9" fill="none" stroke="#000" stroke-opacity=".3" stroke-width="2"/><path d="M38 52q12 4 24 0" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/></g></svg></div><div class="info"><small>Women · Tops</small><h3>Cropped Knit Top</h3><div class="row"><b>₦28,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M8 74h84c0 7-4 11-10 11H16c-6 0-8-4-8-11z" fill="#e8d5b5"/><path d="M8 74h84c0 7-4 11-10 11H16c-6 0-8-4-8-11z" fill="url(#sv)"/><path d="M30 74c4-24 22-24 28 0" fill="none" stroke="#b4532a" stroke-width="5" stroke-linecap="round"/><path d="M60 74c2-14 12-14 16 0" fill="none" stroke="#b4532a" stroke-width="4" stroke-linecap="round"/><path d="M16 74q-2-20 10-26" fill="none" stroke="#b4532a" stroke-width="3.5" stroke-linecap="round"/><circle cx="44" cy="58" r="2.2" fill="#d4af37"/></g></svg></div><div class="info"><small>Women · Sandals</small><h3>Strappy Sandals</h3><div class="row"><b>₦72,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M26 40C26 4 74 4 74 40" fill="none" stroke="#000" stroke-opacity=".6" stroke-width="3" stroke-linecap="round"/><path d="M14 40h72l6 42c0 6-4 8-8 8H16c-4 0-8-2-8-8z" fill="#7a2f3a"/><path d="M14 40h72l6 42c0 6-4 8-8 8H16c-4 0-8-2-8-8z" fill="url(#sh)"/><path d="M14 40h72l6 42c0 6-4 8-8 8H16c-4 0-8-2-8-8z" fill="url(#sv)"/><path d="M14 40h72l-2 18-34 10-34-10z" fill="#000" opacity=".18"/><circle cx="50" cy="66" r="4" fill="#d4af37" stroke="#8a6d1b" stroke-width=".8"/><path d="M20 82h60" fill="none" stroke="#fff" stroke-opacity=".5" stroke-dasharray="2 1.6"/></g></svg></div><div class="info"><small>Women · Bags</small><h3>Crossbody Bag</h3><div class="row"><b>₦89,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="#f7ece9"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M10 50v18h82c2 0 3-6-4-10-8-4-24-6-34-10l-8-8-16 2c-8 0-14 2-20 8z" fill="url(#sv)"/><path d="M8 66h84v9c0 3-2 5-5 5H13c-3 0-5-2-5-5z" fill="#ebe8e0"/><path d="M8 72h84" stroke="#e08aa0" stroke-width="2"/><path d="M28 58q22 8 46-4" fill="none" stroke="#e08aa0" stroke-width="3" stroke-linecap="round"/><path d="M31 46l8 6M38 44l8 6" fill="none" stroke="#c9c9c4" stroke-width="2" stroke-linecap="round"/><ellipse cx="76" cy="60" rx="9" ry="3" fill="#fff" opacity=".5" transform="rotate(14 76 60)"/></g></svg></div><div class="info"><small>Women · Sneakers</small><h3>Blush Street Sneakers</h3><div class="row"><b>₦88,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="#6f93c4"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sh)"/><path d="M30 8h40l4 40 6 46H56l-6-38-6 38H20l6-46z" fill="url(#sv)"/><path d="M30 8h40v7H30z" fill="#000" opacity="0.25"/><path d="M50 15v18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><path d="M32 17q6 8 10 18M68 17q-6 8-10 18" fill="none" stroke="#000" stroke-opacity=".3" stroke-width=".9"/><circle cx="50" cy="12" r="1.5" fill="#d9c9a8"/><path d="M36 55q-2 18-6 36M64 55q2 18 6 36" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/><path d="M32 17q6 8 10 18M68 17q-6 8-10 18" fill="none" stroke="#e8c26a" stroke-width=".8" stroke-dasharray="1.6 1.4"/></g></svg></div><div class="info"><small>Women · Denim</small><h3>High-Rise Jeans</h3><div class="row"><b>₦60,000</b></div></div></div>
+<div class="card"><div class="thumb"><svg viewBox="0 0 100 100"><g filter="url(#drop)"><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="#117a5a"/><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="url(#sh)"/><path d="M38 6h5l2 20q5 6 10 0l2-20h5l2 30-4 8c10 18 18 34 24 50H16c6-16 14-32 24-50l-4-8z" fill="url(#sv)"/><path d="M39 42h22l-1 6H40z" fill="#000" opacity="0.35"/><path d="M44 52q-8 20-18 40M50 52v40M56 52q8 20 18 40" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="1.2" stroke-linecap="round"/></g></svg></div><div class="info"><small>Women · Dresses</small><h3>Emerald Party Dress</h3><div class="row"><b>₦98,000</b></div></div></div>
+</div></div>
+ </div>
+</section>
+
+<section class="dark" id="reviews">
+ <div class="wrap">
+  <div class="head"><span class="eyebrow">Testimonials</span><h2>Loved by our clients</h2><p>Real words from people who wear Ifeco.</p></div>
+  <div class="tgrid">
+   <div class="t"><div class="st">★★★★★</div><p>The blazer fits perfectly and the fabric feels premium. I get compliments every time I wear it.</p><div class="who"><div class="av">C</div><div><b>Chinedu O.</b><small>Lagos</small></div></div></div>
+   <div class="t"><div class="st">★★★★★</div><p>Fast delivery and the midi dress is even prettier in person. Ifeco is now my go-to brand.</p><div class="who"><div class="av">A</div><div><b>Amara E.</b><small>Abuja</small></div></div></div>
+   <div class="t"><div class="st">★★★★★</div><p>Comfortable sneakers with a clean look. Great quality for the price and excellent support.</p><div class="who"><div class="av">T</div><div><b>Tunde A.</b><small>Ibadan</small></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="about" id="about">
+ <div class="wrap">
+  <div class="abox"><svg viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="78" fill="#faf6f0" opacity=".55"/><path d="M70 56l-34 22 12 28 18-8v66h68V98l18 8 12-28-34-22c-5 11-15 17-26 17s-21-6-26-17z" fill="#1c1917"/></svg></div>
+  <div>
+   <span class="eyebrow">About Us</span><h2>Fashion that tells your story</h2>
+   <p>Ifeco Collection was founded on a simple idea: great style should be accessible. We design and curate modern clothing, shoes and accessories that blend African creativity with contemporary trends.</p>
+   <p>Every piece is made with quality fabrics and careful craftsmanship, so you look sharp and feel comfortable all day.</p>
+   <div class="vals"><div><b>Quality</b>Premium materials</div><div><b>Style</b>Modern, timeless cuts</div><div><b>Care</b>Easy returns</div><div><b>Fast</b>Nationwide delivery</div></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact" style="background:var(--acc2)">
+ <div class="wrap cgrid">
+  <div class="cinfo">
+   <span class="eyebrow">Contact</span><h2>Let's talk style</h2>
+   <p>Questions about an order, sizing or a custom piece? We reply within 24 hours.</p>
+   <p><b>Email</b>hello@ifecocollection.com</p><p><b>Phone</b>+234 800 000 0000</p><p><b>Studio</b>Lagos, Nigeria</p>
+  </div>
+  <form id="cf">
+   <input required placeholder="Your name" aria-label="Name">
+   <input required type="email" placeholder="Email address" aria-label="Email">
+   <textarea required rows="4" placeholder="How can we help?" aria-label="Message"></textarea>
+   <button class="btn" type="submit">Send Message</button>
+   <div class="ok" id="ok"></div>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fg">
+   <div><a href="#home" class="logo" style="font-size:1.4rem">Ifeco<span>.</span>Collection</a><p style="margin-top:10px;max-width:300px">Modern fashion and footwear for men and women.</p></div>
+   <div><h4>Explore</h4><ul><li><a href="#shop">Shop</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+   <div><h4>Follow</h4><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">TikTok</a></li></ul></div>
+  </div>
+  <div class="copy">© 2026 Ifeco Collection. All rights reserved.</div>
+ </div>
+</footer>
+
+<script>
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+function toggle(o){burger.classList.toggle('open',o);menu.classList.toggle('open',o);burger.setAttribute('aria-expanded',o)}
+burger.onclick=()=>toggle(!menu.classList.contains('open'));
+menu.querySelectorAll('a').forEach(a=>a.onclick=()=>toggle(false));
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));
+ ['men','women'].forEach(id=>document.getElementById(id).classList.toggle('hide',id!==t.dataset.t));
+});
+let n=0;const c=document.getElementById('count');
+document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{c.textContent=++n;b.textContent='✓';setTimeout(()=>b.textContent='+',800)});
+document.getElementById('cf').onsubmit=e=>{e.preventDefault();document.getElementById('ok').textContent='Thank you! We will get back to you soon.';e.target.reset()};
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.head,.banner,.card,.t,.abox,.about .wrap>div:last-child,.vals div,.cinfo,form,.fg>div').forEach((el,i)=>{el.classList.add('reveal');el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse');const k=document.querySelector('.cart');k.classList.remove('bump');void k.offsetWidth;k.classList.add('bump')}));
+
+const WA_NUMBER='2348000000000'; // replace with your WhatsApp number (country code, no + or spaces)
+const WA_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-5.2A8.500 8.500 0 1112 20.500a8.400 8.400 0 01-4-1z"/><path d="M9 8.500c0 3.500 3 6.500 6.500 6.500l1-1.500-2-1-1 .8c-1-.4-2-1.400-2.400-2.400l.8-1-1-2z" fill="currentColor" stroke="none"/></svg>';
+document.querySelectorAll('.card').forEach(card=>{
+ const name=card.querySelector('h3').textContent,cat=card.querySelector('small').textContent,price=card.querySelector('.row b').textContent;
+ const msg='Hello Ifeco Collection, I would like to buy:\n'+name+' ('+cat+')\nPrice: '+price+'\nPlease confirm availability and sizes.';
+ const a=document.createElement('a');a.className='buy';a.target='_blank';a.rel='noopener';
+ a.href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+ a.innerHTML=WA_ICON+'Buy on WhatsApp';a.setAttribute('aria-label','Buy '+name+' on WhatsApp');
+ card.querySelector('.info').appendChild(a);
+});
+
+const PHOTOS={}; // optional: {'Tailored Blazer':'data:image/jpeg;base64,...'} to use your own photos
+document.querySelectorAll('.card').forEach(c=>{const u=PHOTOS[c.querySelector('h3').textContent];if(u){const t=c.querySelector('.thumb');t.innerHTML='<img src="'+u+'" alt="" style="width:100%;height:100%;object-fit:cover">'}});
+</script>
+</body>
+</html>
